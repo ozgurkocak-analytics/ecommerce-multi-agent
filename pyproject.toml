@@ -1,0 +1,15 @@
+[project]
+name = "ozgur-langchain"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=1.4.0",
+    "langchain-google-genai>=4.4.0",
+    "langchain-mcp-adapters>=0.3.2",
+    "langgraph>=1.2.11",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.3",
+    "streamlit>=1.63.0",
+]

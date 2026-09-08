@@ -1,0 +1,17 @@
+# Python & Virtual Environments
+.venv/
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Local Databases & generated data
+*.db
+*.sqlite3
+
+# VS Code / IDE
+.vscode/
+
+# Streamlit
+.streamlit/
