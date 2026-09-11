@@ -41,20 +41,18 @@ def fetch_unanalyzed_reviews() -> list[dict]:
         for row in rows
     ]
 
-async def analyze_pending_reviews(batch_size: int = 15) -> BatchSentimentResult:
+async def analyze_pending_reviews(batch_size: int = 35) -> BatchSentimentResult:
     """
-    Bekleyen yorumları çeker ve Gemini + Pydantic ile yapılandırılmış analizi üretir.
+    Fetches pending reviews and extracts structured sentiment using Gemini + Pydantic.
     """
     reviews = fetch_unanalyzed_reviews()
     if not reviews:
-        print("Analiz edilecek bekleyen yeni yorum bulunamadi.")
         return BatchSentimentResult(results=[])
 
-    # Test ve token tasarrufu için ilk etapta batch_size kadarını alalım
     selected_reviews = reviews[:batch_size]
 
     llm = ChatGoogleGenerativeAI(
-        model="gemini-3.6-flash",
+        model="gemini-flash-latest",
         google_api_key=os.getenv("GEMINI_API_KEY")
     )
     

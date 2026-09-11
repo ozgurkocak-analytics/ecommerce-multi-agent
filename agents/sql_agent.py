@@ -36,7 +36,7 @@ async def create_sql_agent():
     read_tools = [t for t in tools if t.name in ["read_query", "list_tables", "describe_table"]]
     
     llm = ChatGoogleGenerativeAI(
-        model="gemini-3.6-flash",
+        model="gemini-flash-latest",
         google_api_key=os.getenv("GEMINI_API_KEY")
     )
     
