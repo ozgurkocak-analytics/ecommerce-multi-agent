@@ -26,7 +26,7 @@ class RouteDecision(BaseModel):
 
 def create_router_agent():
     llm = ChatGoogleGenerativeAI(
-        model="gemini-flash-latest",
+        model="gemini-3.6-flash",
         google_api_key=os.getenv("GEMINI_API_KEY")
     )
     return llm.with_structured_output(RouteDecision)

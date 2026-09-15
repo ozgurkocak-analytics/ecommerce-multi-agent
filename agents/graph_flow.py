@@ -44,7 +44,7 @@ async def node_sql(state: AgentState) -> Dict[str, Any]:
 
 # 3. Node: Sentiment Analysis
 async def node_sentiment(state: AgentState) -> Dict[str, Any]:
-    batch = await analyze_pending_reviews(batch_size=35)
+    batch = await analyze_pending_reviews(batch_size=10)
     updates = [item.model_dump() for item in batch.results]
     return {"pending_updates": updates}
 
@@ -74,7 +74,7 @@ def node_commit(state: AgentState) -> Dict[str, Any]:
 # 6. Düğüm: Nihai Özet (Summary Agent)
 async def node_summary(state: AgentState) -> Dict[str, Any]:
     llm = ChatGoogleGenerativeAI(
-        model="gemini-flash-latest",
+        model="gemini-3.6-flash",
         google_api_key=os.getenv("GEMINI_API_KEY")
     )
     

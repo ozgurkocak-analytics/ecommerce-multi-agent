@@ -7,7 +7,7 @@ load_dotenv()
 
 def test_single_review_analysis():
     llm = ChatGoogleGenerativeAI(
-        model="gemini-flash-latest",
+        model="gemini-3.6-flash",
         temperature=0.0,
         google_api_key=os.getenv("GEMINI_API_KEY")
     )

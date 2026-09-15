@@ -8,7 +8,16 @@ async def main():
     # Thread ID for session state management
     config = {"configurable": {"thread_id": "session-demo-terminal"}}
     
-    user_query = "Which product has the highest total revenue but suffers from deteriorating customer reviews?"
+    prompt_guide = (
+    "\nEnter your analytical query:\n"
+    "  [e.g., 'What is the weekly revenue trend for Smartwatch?'\n"
+    "         'Show negative customer reviews and battery issues'\n"
+    "         'Which product has the highest returns?']\n"
+    "Press [Enter] to run default scenario: "
+)
+
+    user_input = input(prompt_guide).strip()
+    user_query = user_input if user_input else "Which product has the highest total revenue but suffers from deteriorating customer reviews?"
     print(f"\n[User Query]: {user_query}")
     print("=" * 70)
 
